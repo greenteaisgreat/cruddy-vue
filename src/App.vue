@@ -1,8 +1,10 @@
 <script setup>
   import { RouterView } from 'vue-router';
+  import TodoHeader from './components/TodoHeader.vue';
 </script>
 
 <template>
+  <TodoHeader />
   <RouterView />
 </template>
 
@@ -11,6 +13,7 @@
 
   * {
     font-family: 'Rubik', sans-serif;
+    font-weight: 600;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
