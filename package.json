@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "prettier": {
+    "singleQuote": true,
+    "vueIndentScriptAndStyle": true
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
