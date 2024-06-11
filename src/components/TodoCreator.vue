@@ -1,20 +1,21 @@
 <script setup>
   import { ref } from 'vue';
   const todo = ref('');
+
+  const emit = defineEmits(['create-todo']);
+
+  function createTodo() {
+    emit('create-todo', todo.value);
+    todo.value = '';
+  }
 </script>
 
 <template>
-  <form>
+  <form @submit.prevent="createTodo">
     <div class="input-wrap">
-      <input
-        required
-        type="text"
-        placeholder="Enter Your Cruddy"
-        v-model="todo"
-      />
+      <input required placeholder="Enter Your Cruddy" v-model="todo" />
       <button>Create Your Cruddy</button>
     </div>
-    <p>{{ todo }}</p>
   </form>
 </template>
 
