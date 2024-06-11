@@ -4,23 +4,18 @@
 
   const emit = defineEmits(['create-todo']);
 
-  const createTodo = () => {
+  function createTodo() {
     emit('create-todo', todo.value);
-  };
+    todo.value = '';
+  }
 </script>
 
 <template>
-  <form @submit.prevent>
+  <form @submit.prevent="createTodo">
     <div class="input-wrap">
-      <input
-        required
-        type="text"
-        placeholder="Enter Your Cruddy"
-        v-model="todo"
-      />
-      <button @click="createTodo()">Create Your Cruddy</button>
+      <input required placeholder="Enter Your Cruddy" v-model="todo" />
+      <button>Create Your Cruddy</button>
     </div>
-    <p>{{ todo }}</p>
   </form>
 </template>
 
