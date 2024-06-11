@@ -1,11 +1,23 @@
 <script setup>
+  import { ref } from 'vue';
   import TodoCreator from '../components/TodoCreator.vue';
+
+  const todoList = ref([]);
+
+  const createTodo = (todo) => {
+    todoList.value.push({
+      id: crypto.randomUUID(),
+      todo,
+      isCompleted: null,
+      isEditing: null,
+    });
+  };
 </script>
 
 <template>
   <main>
     <h1>Create a Cruddy</h1>
-    <TodoCreator></TodoCreator>
+    <TodoCreator @create-todo="createTodo" />
   </main>
 </template>
 
